@@ -23,8 +23,8 @@ let without = function(arrayTrim, arrayThingsToTrim) {
   let ifTrue;
   for (let testNum of arrayTrim) {
     ifTrue = true;
-    for (i = 0; i < arrayThingsToTrim.length; i++) {
-      if (testNum === arrayThingsToTrim[i]) {
+    for (let thingToTrim of arrayThingsToTrim) {
+      if (testNum === thingToTrim) {
         ifTrue = false;
       }
     }
