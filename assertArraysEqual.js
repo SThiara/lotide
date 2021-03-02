@@ -17,8 +17,3 @@ let eqArrays = function(arrayOne, arrayTwo) {
   }
   return true;
 }
-
-assertEqual([1, 2, 3], [1, 2, 3]);
-assertEqual([1, 2, 1], [1, 2, 3]);
-assertEqual([1, 2, "3"], [1, 2, 3]);
-assertEqual(["1", "2", "3"], ["1", "2", "3"]);
