@@ -17,3 +17,20 @@ let eqArrays = function(arrayOne, arrayTwo) {
   }
   return true;
 }
+
+let without = function(arrayTrim, arrayThingsToTrim) {
+  let newArray = [];
+  let ifTrue;
+  for (let testNum of arrayTrim) {
+    ifTrue = true;
+    for (i = 0; i < arrayThingsToTrim.length; i++) {
+      if (testNum === arrayThingsToTrim[i]) {
+        ifTrue = false;
+      }
+    }
+    if (ifTrue) {
+      newArray.push(testNum);
+    }
+  }
+  return newArray;
+}
