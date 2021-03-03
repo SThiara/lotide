@@ -18,19 +18,16 @@ let eqArrays = function(arrayOne, arrayTwo) {
   return true;
 }
 
-let without = function(arrayTrim, arrayThingsToTrim) {
-  let newArray = [];
-  let shouldKeep;
-  for (let testNum of arrayTrim) {
-    shouldKeep = true;
-    for (let thingToTrim of arrayThingsToTrim) {
-      if (testNum === thingToTrim) {
-        shouldKeep = false;
-      }
-    }
-    if (shouldKeep) {
-      newArray.push(testNum);
-    }
+let middle = function(arrayMid) {
+  let returnArray = [];
+  if (arrayMid.length < 3) {
+    return returnArray;
   }
-  return newArray;
+  if (arrayMid.length % 2 !== 0) {
+    returnArray.push(arrayMid[Math.floor(arrayMid.length / 2)]);
+  } else {
+    returnArray.push(arrayMid[(arrayMid.length / 2) - 1]);
+    returnArray.push(arrayMid[(arrayMid.length / 2)]);
+  }
+  return returnArray;
 }
