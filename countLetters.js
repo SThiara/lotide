@@ -10,10 +10,12 @@ let countLetters = function(sentence) {
   if (typeof sentence === 'string') {
     let returnCount = {};
     for (let letter of sentence) {
-      if (returnCount[letter]) {
-        returnCount[letter] += 1;
-      } else {
-        returnCount[letter] = 1;
+      if (letter !== " ") {
+        if (returnCount[letter]) {
+          returnCount[letter] += 1;
+        } else {
+          returnCount[letter] = 1;
+        }
       }
     }
     return returnCount;
