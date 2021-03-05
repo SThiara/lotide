@@ -18,10 +18,13 @@ let eqArrays = function(arrayOne, arrayTwo) {
   return true;
 }
 
-const map = (array, callback) => {
-  const results = [];
-  for (let item of array) {
-    results.push(callback(item));
+const takeUntil = function(array, callback) {
+  let returnArray = [];
+  for (let value of array) {
+    if (!callback(value)) {
+      returnArray.push(value);
+    } else {
+      return returnArray;
+    }
   }
-  return results;
 }
