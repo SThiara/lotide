@@ -28,13 +28,17 @@ const flatten = array => {
   }
 
   const flattenForReal = array => {
-    if (!((Array.isArray(array[0]) && array[0].length === 0) || array.length === 0)) {
-      if (Array.isArray(array[0])) {
+    if (!(array.length === 0)) { 
+      if (Array.isArray(array[0]) && array[0].length !== 0) {
           flattenForReal(array[0]);
       }
       midArray.push(array.shift());
       flattenForReal(array);
     }
+/*     if (array.length > 0) {
+      array.shift();
+      flattenForReal(array);   
+    } */
   }
     
   // if (initArray.length > 0) {
@@ -46,5 +50,6 @@ const flatten = array => {
   return finalArray;
 }
 
-assertArraysEqual(flatten([[1, [1]], [1, [1], [[[[[1]]]]]], [1, 1, 1]]), [1, 1, 1, 1, 1, 1, 1, 1]);
-
+assertArraysEqual(flatten([[], [1, [1]], [], [1, [1], [[[[[1]]]]]], [1, 1, 1], [[]], []]), [1, 1, 1, 1, 1, 1, 1, 1]);
+assertArraysEqual(flatten([1]), [1]);
+assertArraysEqual(flatten([]), []);
