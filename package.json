@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@sthiara/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "A library of functions meant to replicate functions available through Lodash, prepared for LHL Bootcamp",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/SThiara/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sajan Thiara",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SThiara/lotide/issues"
