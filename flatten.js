@@ -18,10 +18,9 @@ let eqArrays = function(arrayOne, arrayTwo) {
   return true;
 };
 
-const flatten = array => {
-  let initArray = [...array];
-  let midArray = [];
-  let finalArray = [];
+/* const flatten = array => {
+  const initArray = [...array];
+  const midArray = [];
 
   (function flattenForReal(array) {
     if (array.length !== 0) {
@@ -33,15 +32,23 @@ const flatten = array => {
     }
   }(initArray));
 
-  midArray.forEach(index => {
-    if (!Array.isArray(index)) {
-      finalArray.push(index);
-    }
-  });
+  return midArray.filter(currentVal => (!Array.isArray(currentVal)));
+}; */
 
-  return finalArray;
-};
+const flatten = array => {
+  let returnArray = [];
+  for (const thing of array) {
+    if (Array.isArray(thing)) {
+      const returnedArray = flatten(thing);
+      returnArray = returnArray.concat(returnedArray);
+    } else (
+      returnArray.push(thing)
+    )
+  }
+  return returnArray;
+}
 
-assertArraysEqual(flatten([[], [1, [1]], [], [1, [1], [[[[[1]]]]]], [1, 1, 1], [[]], []]), [1, 1, 1, 1, 1, 1, 1, 1]);
+assertArraysEqual(flatten([1, [], [1, [1]], [], [1, [1], [[[[[1]]]]]], [1, 1, 1], [[]], []]), [1, 1, 1, 1, 1, 1, 1, 1, 1]);
 assertArraysEqual(flatten([1]), [1]);
 assertArraysEqual(flatten([]), []);
+assertArraysEqual(flatten([1, 1, 1, 1, 1]), [1, 1, 1, 1, 1]);

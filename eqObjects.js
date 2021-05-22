@@ -10,7 +10,7 @@ const eqArrays = function(arrayOne, arrayTwo) {
   if (arrayOne.length !== arrayTwo.length) {
     return false;
   }
-  for (i = 0; i < arrayOne.length; i++) {
+  for (let i = 0; i < arrayOne.length; i++) {
     if (arrayOne[i] !== arrayTwo[i]) {
       return false;
     }
@@ -19,11 +19,11 @@ const eqArrays = function(arrayOne, arrayTwo) {
 }
 
 const eqObjects = function(object1, object2) {
-  let keysChecklist = Object.keys(object1);
+  const keysChecklist = Object.keys(object1);
   if (keysChecklist.length !== Object.keys(object2).length) {
     return false;
   }
-  for (let key of keysChecklist) {
+  for (const key of keysChecklist) {
     if (Array.isArray(object1[key])) {
       if (eqArrays(object1[key], object2[key]) === false) {
         return false;
